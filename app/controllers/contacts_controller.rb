@@ -15,7 +15,9 @@ class ContactsController < ApplicationController
 
   # POST /customers/:customer_id/contacts
   def create
-    @contact = @customer.contacts.new(contact_params)
+    @contact = Contact.new(contact_params)
+    @contact.customer_id = params[:customer_id]
+
     if @contact.save
       render json: @contact, status: :created
     else
@@ -25,6 +27,8 @@ class ContactsController < ApplicationController
 
   # PATCH/PUT /customers/:customer_id/contacts/:id
   def update
+    @contact = Contact.find(params[:id])
+
     if @contact.update(contact_params)
       render json: @contact
     else

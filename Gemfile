@@ -28,3 +28,12 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :development, :test do
+  gem 'factory_bot', '~> 5.0'
+  gem 'factory_bot_rails', '~> 5.0'
+  gem 'faker'
+  gem 'rspec-rails'
+end
+
+gem 'activerecord-jdbcpostgresql-adapter', platform: :jruby
