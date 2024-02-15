@@ -33,13 +33,11 @@ class CustomersController < ApplicationController
 
   # DELETE /customers/:id
   def destroy
-    begin
-      @customer.destroy
-      head :no_content
-    rescue StandardError => e
-      render json: { error: e.message }, status: :internal_server_error
-    end
-  end  
+    @customer.destroy
+    head :no_content
+  rescue StandardError => e
+    render json: { error: e.message }, status: :internal_server_error
+  end
 
   private
 
