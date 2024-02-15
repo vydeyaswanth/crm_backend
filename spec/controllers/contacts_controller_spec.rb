@@ -52,7 +52,6 @@ RSpec.describe ContactsController, type: :controller do
         put :update, params: { customer_id: customer.id, id: contact.id, contact: new_attributes }
         contact.reload
         expect(contact.name).to eq('Jane Doe')
-        # Add more expectations for the updated attributes here
       end
     end
   end
@@ -73,14 +72,11 @@ RSpec.describe ContactsController, type: :controller do
   end
 
   def valid_attributes
-    # Add valid attributes for Contact creation
   end
 
   def invalid_attributes
-    # Add invalid attributes for Contact creation
   end
 
   def new_attributes
-    # Add new attributes for Contact update
   end
 end
